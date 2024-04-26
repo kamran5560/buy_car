@@ -16,7 +16,7 @@ class _Splash_PageState extends State<Splash_Page> {
   @override
   Widget build(BuildContext context) {
     Timer(
-        Duration(seconds: 5),
+        Duration(seconds: 3),
             () => Navigator.of(context).pushReplacement(MaterialPageRoute(
             builder: (BuildContext context) => Onbording_Page())));
     return Scaffold(

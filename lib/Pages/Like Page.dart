@@ -1,10 +1,17 @@
-import 'package:buy_car/res/colors.dart';
 import 'package:flutter/material.dart';
 
 import '../res/assets/image_assets.dart';
+import '../res/colors.dart';
 import 'Constant Widgets.dart';
 
-class Home_Page extends StatelessWidget {
+class Like_Page extends StatefulWidget {
+  const Like_Page({Key? key}) : super(key: key);
+
+  @override
+  State<Like_Page> createState() => _Like_PageState();
+}
+
+class _Like_PageState extends State<Like_Page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,43 +20,24 @@ class Home_Page extends StatelessWidget {
         backgroundColor: AppColor.BackGroundColor,
         title: Center(
           child: Text(
-            "Home",
-            style: TextStyle(color: AppColor.blackColor),
+            "Favorite",
+            style: TextStyle(color: AppColor.title_color),
           ),
+        ),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios, color: AppColor.title_color),
+          onPressed: () {
+          },
         ),
         automaticallyImplyLeading: false,
         elevation: 0,
       ),
+
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  children: [
-                    Text(
-                      "Hola, Faiz 👋",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 30,
-                          color: AppColor.title_color),
-                    ),
-                    SizedBox(height: 6),
-                    Text(
-                      "Find your favorite car",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w400,
-                          fontSize: 17,
-                          color: AppColor.text_color),
-                    ),
-                  ],
-                ),
-                Image.asset(ImageAssets.notification),
-              ],
-            ),
             Search_TextField(),
             SizedBox(height: 10),
             Text(

@@ -11,5 +11,9 @@ class AppColor {
   static const Color text_color =  Color(0xff767676);
   static const Color button_outline_col =  Color(0xff4D5364);
   static const Color textfield_outline_col =  Color(0xff4D5364);
+  static const Color Button_Text_Color =  Color(0xff2A2F3D);
+  static const Color F_Button_Color =  Color(0xff415792);
+  static const Color Elevated_Button_Color =  Color(0xffEBEBEB);
+  static const Color Dark_Gray =  Color(0xff242731);
 
 }

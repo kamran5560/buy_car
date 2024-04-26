@@ -11,18 +11,18 @@ class UnbordingContent {
 List<UnbordingContent> contents = [
   UnbordingContent(
       image: ImageAssets.group3,
-      title: 'Welcome to our Car \n Buying platform!',
-      discription: "Sell stuff easily! Turn your things into money. "
+      title: 'Welcome to our Car \nBuying platform!',
+      discription: "Sell stuff easily! Turn your things into \nmoney. "
   ),
   UnbordingContent(
       image: ImageAssets.group2,
-      title: 'Welcome to our Car \n Buying platform!',
-      discription: "Trust us for safe deals. Your safety matters most. "
+      title: 'Welcome to our Car \nBuying platform!',
+      discription: "Trust us for safe deals. Your safety \nmatters most. "
   ),
   UnbordingContent(
       image: ImageAssets.group1,
-      title: 'Welcome to our Car \n Buying platform!',
-      discription: "Shop worry-free here. Find what you need with confidence. "
+      title: 'Welcome to our Car \nBuying platform!',
+      discription: "Shop worry-free here. Find what you \nneed with confidence. "
   ),
 
 

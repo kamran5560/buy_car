@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'Pages/Botm NavBar.dart';
+import 'Pages/Home Page.dart';
 import 'Pages/Splash Page.dart';
 
 

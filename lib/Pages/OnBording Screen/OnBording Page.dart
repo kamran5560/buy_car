@@ -1,6 +1,7 @@
 import 'package:buy_car/res/colors.dart';
 import 'package:flutter/material.dart';
-import '../Home Page.dart';
+import '../../res/assets/image_assets.dart';
+import '../SignUp Page.dart';
 import 'Context Model.dart';
 
 class Onbording_Page extends StatefulWidget {
@@ -39,29 +40,47 @@ class _Onbording_PageState extends State<Onbording_Page> {
                 });
               },
               itemBuilder: (_, i) {
-                return Padding(
-                  padding: const EdgeInsets.all(40),
+                return  SafeArea(
                   child: Column(
                     children: [
-                      Image.asset(contents[i].image,
-                          fit: BoxFit.cover),
 
-                      Text(
-                        contents[i].title,
-                        style: TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold,
-                          color: AppColor.title_color
+                      Padding(
+                        padding:  EdgeInsets.only(top: 42),
+                        child: Image.asset(contents[i].image,
+                            width: 390,
+                            fit: BoxFit.cover),
+                      ),
+
+                      Padding(
+                        padding:  EdgeInsets.only(top: 42,left: 22),
+                        child: Row(
+                          children: [
+                            Text(
+                              contents[i].title,
+                              style: TextStyle(
+                                fontSize: 28,
+                                fontWeight: FontWeight.bold,
+                                color: AppColor.title_color,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                       SizedBox(height: 20),
-                      Text(
-                        contents[i].discription,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w400,
-                          color: AppColor.text_color,
+                      Padding(
+                        padding:  EdgeInsets.only(left: 22),
+                        child: Row(
+                          children: [
+                            Text(
+                              contents[i].discription,
+                              // textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w400,
+                                color: AppColor.text_color,
+                              ),
+                            ),
+                          ],
                         ),
                       )
                     ],
@@ -71,42 +90,44 @@ class _Onbording_PageState extends State<Onbording_Page> {
             ),
           ),
           Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(
-                contents.length,
-                    (index) => buildDot(index, context),
-              ),
+            child:
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 22),
+                  child: Row(
+                    children: List.generate(
+                      contents.length,
+                          (index) => buildDot(index, context),
+                    ),
+                  ),
+                ),
+
+                GestureDetector(
+                  onTap: () {
+                    if (currentIndex == contents.length - 1) {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => SignUp_Page(),
+                        ),
+                      );
+                    } else {
+                      _controller.nextPage(
+                        duration: Duration(milliseconds: 100),
+                        curve: Curves.bounceIn,
+                      );
+                    }
+                  },
+                  child: Image.asset(
+                    ImageAssets.Vector1, // Replace with your image path
+                  ),
+                )
+              ],
             ),
           ),
-          Container(
-            height: 60,
-            margin: EdgeInsets.all(40),
-            width: double.infinity,
-            child: ElevatedButton(
-              child: Text(
-                  currentIndex == contents.length - 1 ? "Continue" : "Next"),
-              onPressed: () {
-                if (currentIndex == contents.length - 1) {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => Home(),
-                    ),
-                  );
-                }
-                _controller.nextPage(
-                  duration: Duration(milliseconds: 100),
-                  curve: Curves.bounceIn,
-                );
-              },
-              // color: Theme.of(context).primaryColor,
-              // textColor: Colors.white,
-              // shape: RoundedRectangleBorder(
-              //   borderRadius: BorderRadius.circular(20),
-              // ),
-            ),
-          )
         ],
       ),
     );
@@ -119,7 +140,7 @@ class _Onbording_PageState extends State<Onbording_Page> {
       margin: EdgeInsets.only(right: 5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: Theme.of(context).primaryColor,
+        color: AppColor.primaryColor,
       ),
     );
   }
