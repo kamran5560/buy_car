@@ -1,10 +1,11 @@
 import 'package:buy_car/res/colors.dart';
 import 'package:flutter/material.dart';
-
 import 'Botm NavBar.dart';
 import 'Constant Widgets.dart';
 import 'Home Page.dart';
 import 'Registration Pages/Email_Page.dart';
+import 'package:passwordfield/passwordfield.dart';
+
 
 class Login_Page extends StatefulWidget {
   const Login_Page({Key? key}) : super(key: key);
@@ -54,13 +55,14 @@ class _Login_PageState extends State<Login_Page> {
                           children: [
                             Text("Please login your account", style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: AppColor.text_color)),
                             TextField_Design("Enter your Email Address",'Email Address',310),
+
                             TextField_Design("Enter password",'Password',310),
                             SizedBox(height: 14),
                             Elevated_Button("Continue", () {
-                              Navigator.of(context).push(MaterialPageRoute(
+                              Navigator.of(context).pushReplacement(MaterialPageRoute(
                                   builder: (BuildContext context) =>
-                                      Bottm_Nav()));
-                            }, 110, 12, AppColor.Elevated_Button_Color, AppColor.Elevated_Button_Color, AppColor.button_outline_col),
+                                      Email_Page()));
+                            }, 110, 12, AppColor.Elevated_Button_Color, AppColor.Elevated_Button_Color, AppColor.button_outline_col,32),
                             SizedBox(height: 14),
                             Text("or", style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: AppColor.text_color)),
                             SizedBox(height: 18),
@@ -72,7 +74,7 @@ class _Login_PageState extends State<Login_Page> {
                             SizedBox(height: 18),
                             GestureDetector(
                                 onTap: (){
-                                  Navigator.of(context).push(MaterialPageRoute(
+                                  Navigator.of(context).pop(MaterialPageRoute(
                                       builder: (BuildContext context) =>
                                           Email_Page()));
                                 },

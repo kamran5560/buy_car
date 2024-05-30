@@ -16,23 +16,10 @@ class _Like_PageState extends State<Like_Page> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.BackGroundColor,
-      appBar: AppBar(
-        backgroundColor: AppColor.BackGroundColor,
-        title: Center(
-          child: Text(
-            "Favorite",
-            style: TextStyle(color: AppColor.title_color),
-          ),
-        ),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios, color: AppColor.title_color),
-          onPressed: () {
-          },
-        ),
-        automaticallyImplyLeading: false,
-        elevation: 0,
-      ),
-
+      appBar: PreferredSize(
+          preferredSize: Size.fromHeight(80),
+          child:App_Bar(context,"Favorite",AppColor.whiteColor,() {
+            Navigator.of(context).pop();},)),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: Column(

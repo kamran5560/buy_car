@@ -1,9 +1,27 @@
 import 'package:flutter/material.dart';
-
-import '../res/assets/image_assets.dart';
 import '../res/colors.dart';
 
 
+Widget App_Bar(BuildContext context,String title, Color b_Color ,Function() onpress){
+  return AppBar(
+    backgroundColor: b_Color,
+    title: Center(
+      child: Text(
+        "${title}",
+        style: TextStyle(color: AppColor.title_color),
+      ),
+    ),
+    leading: IconButton(
+      icon: Icon(Icons.arrow_back_ios, color: AppColor.title_color),
+      onPressed: onpress
+      //     () {
+      //   Navigator.of(context).pop();
+      // },
+    ),
+    automaticallyImplyLeading: false,
+    elevation: 0,
+  );
+}
 
 Widget TextField_Design(
      String hint,String lable ,double width) {
@@ -19,7 +37,7 @@ SizedBox(height: 14),
           child: TextField(
             decoration: InputDecoration(
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10), // Adjust the radius as needed
+                borderRadius: BorderRadius.circular(10),
               ),
               hintText: '${hint}',
             ),
@@ -72,6 +90,7 @@ Widget Elevated_Button(
     Color buttonColor,
     Color OutLineColor,
     Color TextColor,
+    double border_radius,
 
     ) {
   return Container(
@@ -91,7 +110,7 @@ Widget Elevated_Button(
                 ),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(32),
+                    borderRadius: BorderRadius.circular(border_radius),
                   ),
                 ),
                 backgroundColor: MaterialStateProperty.all<Color>(buttonColor)
@@ -160,13 +179,21 @@ Widget Search_TextField (){
 }
 
 Widget Home_Pag_Card(String image,String Car_Name,double value){
-  return             Container(
+  return Container(
     decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: AppColor.whiteColor
+        color: AppColor.whiteColor,
+      boxShadow: [
+        BoxShadow(
+          color: Colors.grey.withOpacity(0.5),
+          blurRadius: 5,
+          offset: Offset(0, 3),
+        ),
+      ],
     ),
     width: 170,
     padding: EdgeInsets.only(top: 6,bottom: 12,left: 8,right: 8),
+    margin: EdgeInsets.only( left: 8),
     child: Column(crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Image.asset(
@@ -204,3 +231,136 @@ Widget Home_Pag_Card(String image,String Car_Name,double value){
     ),
   );
 }
+
+Widget Notification_page_Card(String image, String name,String notification,String LastSeen){
+  return Container(
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(12),color:  AppColor.whiteColor,
+    ),
+    padding: EdgeInsets.symmetric(vertical: 8,horizontal: 8),
+    margin: EdgeInsets.symmetric(vertical: 8),
+    child:   Row(crossAxisAlignment:  CrossAxisAlignment.start,
+      children: [
+        Image.asset(
+          '${image}',
+          scale: .5,
+        ),
+        SizedBox(width: 15),
+        Expanded(
+          child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text("${name}",style: TextStyle(fontSize: 18,fontWeight: FontWeight.w600,color: AppColor.Dark_Gray),),
+              SizedBox(height: 4),
+              Text("${notification}",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w500,color: AppColor.blackColor),),
+              SizedBox(height: 4),
+              Text("${LastSeen}",style: TextStyle(fontSize: 16,fontWeight: FontWeight.w500,color: AppColor.text_color),),
+
+            ],
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+Widget Hori_Line_Code(Color LineColor,){
+  return  Padding(
+    padding: EdgeInsets.symmetric(vertical: 12),
+    child: Container(
+      height: 1,
+      color: LineColor,
+    ),
+  );
+}
+
+
+// Widget NavDrawer(BuildContext context){
+//   int _status = 0;
+//   return Drawer(
+//     child: Padding(
+//       padding:  EdgeInsets.only(top:36,left: 18,right: 18),
+//       child: Column(
+//         crossAxisAlignment: CrossAxisAlignment.start,
+//         children: [
+//           IconButton(
+//             icon: Icon(Icons.arrow_back_ios, color: AppColor.title_color),
+//             onPressed: () {
+//               Navigator.of(context).pop();
+//             },
+//           ),
+//           SizedBox(height: 12),
+//           CircleAvatar(
+//             radius: 50,
+//             backgroundColor: Colors.white,
+//             child: ClipRRect(
+//               borderRadius: BorderRadius.circular(50),
+//               child: Image.asset(
+//                 'images/My-pic.png',
+//                 width: 80,
+//                 height: 80,
+//               ),
+//             ),
+//           ),
+//
+//           Text(
+//             'Kamran Khan',
+//             style: TextStyle(fontWeight: FontWeight.w600,fontSize: 18,color: AppColor.blackColor),
+//           ),
+//
+//           Text(
+//             'miakamrankhan700@gmail.com',
+//             style: TextStyle(fontWeight: FontWeight.w400,fontSize: 14,color: AppColor.text_color),
+//           ),
+//           SizedBox(height: 22),
+//           Row(
+//             children: [
+//               Icon(Icons.error_outline_outlined,color: AppColor.text_color),
+//               SizedBox(width: 8),
+//               Text(
+//                 'About Us',
+//                 style: TextStyle(fontWeight: FontWeight.w600,fontSize: 16,color: AppColor.blackColor),
+//               ),
+//             ],
+//           ),
+//           Hori_Line_Code(AppColor.text_color),
+//           SizedBox(height: 18),
+//           Row(
+//             children: [
+//               Icon(Icons.settings_outlined,color: AppColor.text_color) ,
+//               SizedBox(width: 8),
+//               Text(
+//                 'Settings',
+//                 style: TextStyle(fontWeight: FontWeight.w600,fontSize: 16,color: AppColor.blackColor),
+//               ),
+//             ],
+//           ),
+//           Hori_Line_Code(AppColor.text_color),
+//           SizedBox(height: 18),
+//           Row(
+//             children: [
+//               Icon(Icons.help_outline_outlined,color: AppColor.text_color) ,
+//               SizedBox(width: 8),
+//               Text(
+//                 'Help and Supports',
+//                 style: TextStyle(fontWeight: FontWeight.w600,fontSize: 16,color: AppColor.blackColor),
+//               ),
+//             ],
+//           ),
+//           Hori_Line_Code(AppColor.text_color),
+//           SizedBox(height: 18),
+//           Row(
+//             children: [
+//               Icon(Icons.logout,color: AppColor.text_color) ,
+//               SizedBox(width: 8),
+//               Text(
+//                 'LogOut',
+//                 style: TextStyle(fontWeight: FontWeight.w600,fontSize: 16,color: AppColor.blackColor),
+//               ),
+//             ],
+//           ),
+//
+//         ],
+//       ),
+//     ),
+//   );
+// }

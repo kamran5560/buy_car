@@ -22,5 +22,9 @@ class ImageAssets {
   static const String notification = 'images/notification.png';
   static const String car1 = 'images/car1.png';
   static const String car2 = 'images/car2.png';
+  static const String Like_Car = 'images/Like_Car.png';
+  static const String Info_Car = 'images/Info_Car.png';
+
 
 }
+

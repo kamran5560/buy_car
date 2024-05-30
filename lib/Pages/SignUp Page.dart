@@ -62,10 +62,10 @@ class _SignUp_PageState extends State<SignUp_Page> {
                           Image_Elevated_Button('images/apple.png','Continue with Apple',AppColor.blackColor,AppColor.blackColor,AppColor.whiteColor,(){}),
                           Text("or", style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: AppColor.text_color),),
                           Elevated_Button("Continue with email",(){
-                            Navigator.of(context).push(MaterialPageRoute(
+                            Navigator.of(context).pushReplacement(MaterialPageRoute(
                                 builder: (BuildContext context) =>
                                     Login_Page()));
-                          },72,12,AppColor.BackGroundColor,AppColor.button_outline_col,AppColor.button_outline_col),
+                          },72,12,AppColor.BackGroundColor,AppColor.button_outline_col,AppColor.button_outline_col,32),
                           Text("Already have an account? Login", style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: AppColor.primaryColor),),
                           Text("By continuing, you automatically accept our Terms & \nConditions, Privacy Policy and Cookies policy.",  textAlign: TextAlign.center,style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: AppColor.text_color),),
 

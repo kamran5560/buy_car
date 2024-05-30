@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-
 import '../res/assets/image_assets.dart';
 import '../res/colors.dart';
+import 'Add New Car Page.dart';
 import 'Chat Page.dart';
-import 'Contect Page.dart';
+import 'Profile Page.dart';
 import 'Home Page.dart';
 import 'Like Page.dart';
 
@@ -17,7 +17,8 @@ class _Bottm_NavState extends State<Bottm_Nav> {
   int _selectedIndex = 0;
   static  List<Widget> _widgetOptions = <Widget>[
     Home_Page(),
-    Contact_Page(),
+    Profile_Page(),
+    Add_New_Car(),
     Like_Page(),
     Chat_Page()
   ];
@@ -30,10 +31,8 @@ class _Bottm_NavState extends State<Bottm_Nav> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Container(
-          child: _widgetOptions[_selectedIndex],
-        ),
+      body: Container(
+        child: _widgetOptions[_selectedIndex],
       ),
       bottomNavigationBar: Column(
         mainAxisSize: MainAxisSize.min,
@@ -48,7 +47,7 @@ class _Bottm_NavState extends State<Bottm_Nav> {
                   color: Colors.grey.withOpacity(0.5),
                   spreadRadius: 5,
                   blurRadius: 7,
-                  offset: Offset(0, 3), // changes position of shadow
+                  offset: Offset(0, 3),
                 ),
               ],
             ),
@@ -88,6 +87,18 @@ class _Bottm_NavState extends State<Bottm_Nav> {
                     child: Wrap(
                       crossAxisAlignment: WrapCrossAlignment.center,
                       children: [
+                        Image.asset(ImageAssets.add_icon),
+                      ],
+                    ),
+                  ),
+                  icon: Image.asset(ImageAssets.add_icon),
+                  label: '',
+                ),
+                BottomNavigationBarItem(
+                  activeIcon: Container(
+                    child: Wrap(
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      children: [
                         Image.asset(ImageAssets.Like_Active),
                       ],
                     ),
@@ -111,7 +122,6 @@ class _Bottm_NavState extends State<Bottm_Nav> {
               ],
             ),
           ),
-          // CustomBannerAd(Adsize: AdSize.fullBanner,)
         ],
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:buy_car/res/colors.dart';
 import 'package:flutter/material.dart';
+import '../Botm NavBar.dart';
 import '../Constant Widgets.dart';
 import '../Home Page.dart';
 
@@ -17,16 +18,16 @@ class _OTP_PageState extends State<OTP_Page> {
 
       Scaffold(
         backgroundColor: AppColor.BackGroundColor,
+        appBar: PreferredSize(
+            preferredSize: Size.fromHeight(80), // here the desired height
+            child:App_Bar(context,'',AppColor.BackGroundColor,      () {
+              Navigator.of(context).pop();
+            },)),
         body: Padding(
-          padding:  EdgeInsets.symmetric(vertical: 16,horizontal: 22),
+          padding:  EdgeInsets.only(bottom: 22,left: 22,right: 22),
           child: (
               Column(crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding:  EdgeInsets.only(top: 18,),
-                    child: IconButton(onPressed: (){},  icon: Icon(Icons.arrow_back_ios),color: AppColor.button_outline_col,),
-                  ),
-                  SizedBox(height: 6),
                   Text('Enter Verification Code .',style: TextStyle(fontSize: 24,fontWeight: FontWeight.w600,color: AppColor.Dark_Gray),),
                   SizedBox(height: 10),
                   Text('We are Automatically detecting a SMS sent to your number.',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w500,color: AppColor.text_color),),
@@ -51,8 +52,8 @@ class _OTP_PageState extends State<OTP_Page> {
                       Elevated_Button("verify", () {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
                             builder: (BuildContext context) =>
-                                Home_Page()));
-                      }, 135, 12, AppColor.Elevated_Button_Color, AppColor.Elevated_Button_Color, AppColor.button_outline_col),
+                                Bottm_Nav()));
+                      }, 135, 12, AppColor.Elevated_Button_Color, AppColor.Elevated_Button_Color, AppColor.button_outline_col,32),
                     ],
                   )
 

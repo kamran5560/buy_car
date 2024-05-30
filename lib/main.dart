@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
+import 'Pages/About Screen.dart';
+import 'Pages/Add New Car Page.dart';
 import 'Pages/Botm NavBar.dart';
+import 'Pages/Car Info.dart';
+import 'Pages/Edit Profile.dart';
 import 'Pages/Home Page.dart';
+import 'Pages/Login Page.dart';
+import 'Pages/Profile Page.dart';
+import 'Pages/Registration Pages/Email_Page.dart';
 import 'Pages/Splash Page.dart';
 
 

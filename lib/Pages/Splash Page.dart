@@ -17,7 +17,7 @@ class _Splash_PageState extends State<Splash_Page> {
   Widget build(BuildContext context) {
     Timer(
         Duration(seconds: 3),
-            () => Navigator.of(context).pushReplacement(MaterialPageRoute(
+            () => Navigator.of(context).push(MaterialPageRoute(
             builder: (BuildContext context) => Onbording_Page())));
     return Scaffold(
       backgroundColor: AppColor.BackGroundColor,
